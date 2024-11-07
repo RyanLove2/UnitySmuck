@@ -1,0 +1,16 @@
+
+Here’s a simple license you can use. It grants users the right to use your work as long as they credit you:
+
+Attribution License
+
+Copyright © 2024 Ryan H Love
+
+Permission is hereby granted to any person obtaining a copy of this work and associated documentation files (the "Work"), to use, copy, modify, merge, publish, distribute, and/or sublicense copies of the Work, under the following conditions:
+
+Attribution: You must give appropriate credit, provide a link to this license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+
+Non-Endorsement: You may not use the Work in any way that implies the author endorses your use of the Work without permission.
+
+No Warranty: The Work is provided "as is", without warranty of any kind, express or implied.
+
+End of License
