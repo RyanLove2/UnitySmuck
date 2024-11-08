@@ -11,21 +11,31 @@ public class playercontroles : MonoBehaviour
     // Start is called before the first frame update
     //Input.GetButtonDown
     private bool attack, moving;
-    private float speed;
+    private float speedx,speedy;
     [SerializeField]
     private SpriteRenderer player;
    
-
+  
+     Transform trans;
+     Vector3 pos;
      Animator ani;
 
     
     void Start()
     {
-        speed = 0.0f;
+        speedx = 1.0f;
+
         attack = false;
         ani = GetComponent<Animator>();
+        //trans = transform;
+        trans = GetComponent<Transform>();
+        pos = transform.position;
     }
 
+    void SetMoving(bool val){
+
+        moving = val;
+    }
     void Shooting(){
 
          if(Input.GetButtonDown("Fire1")){
@@ -54,36 +64,67 @@ public class playercontroles : MonoBehaviour
 
         Shooting();
         
-        if (Input.GetKey("left")){
+
+        if(Input.GetKey("up") && Input.GetKey("right")){
+            transform.position += new Vector3(speedx,speedy+1,0) * Time.deltaTime; 
+            SetMoving(true);
+            player.flipX = false;
+        }
+        else if(Input.GetKey("down") && Input.GetKey("left")){
+            transform.position += new Vector3(-speedx,speedy-1,0) * Time.deltaTime; 
+            SetMoving(true);
+            player.flipX = true;
+        }
+        else if(Input.GetKey("down") && Input.GetKey("right")){
+            transform.position += new Vector3(+speedx,speedy-1,0) * Time.deltaTime; 
+            SetMoving(true);
+            player.flipX = false;
+        }
+        else if(Input.GetKey("up") && Input.GetKey("left")){
+            transform.position += new Vector3(-speedx,speedy+1,0) * Time.deltaTime; 
+            SetMoving(true);
+            player.flipX = true;
+        }
+        else if (Input.GetKey("left")){
            // Debug.Log("playerface Left:"+ player.flipX );
             Debug.Log("Moving:"+ moving );
-            moving = true;
+            
+            SetMoving(true);
             player.flipX = true;
-        
+            transform.position += new Vector3(-speedx,0,0)* Time.deltaTime;
         }
         else if(Input.GetKey("right")){
            // Debug.Log("playerface Left:"+ player.flipX );
             Debug.Log("Moving:"+ moving );
-            moving = true;
+            SetMoving(true);
             player.flipX = false;
-         
+             transform.position += new Vector3(speedx,0,0)* Time.deltaTime;
            
 
         }
+        else if(Input.GetKey("up")){
+            transform.position += new Vector3(0,speedy+1,0) * Time.deltaTime;
+           SetMoving(true);
+        }
+        else if(Input.GetKey("down")){
+            transform.position += new Vector3(0,speedy-1,0) * Time.deltaTime;
+            SetMoving(true);
+        }
         else{
             // play idle animation 
-            moving = false;
+            SetMoving(false);
              ani.SetBool("moving",false);
         
         }
+
+
         // need to player animation when presing left or right
        if (moving == true){
             ani.SetBool("ani_idle",false);
-             ani.SetBool("moving",true);
+            ani.SetBool("moving",true);
        }
        else{
             ani.SetBool("ani_idle",false);
-             
             ani.SetBool("moving",false);
        }
 
@@ -93,5 +134,6 @@ public class playercontroles : MonoBehaviour
     void Update()
     {
       Controles();
+      
     }
 }

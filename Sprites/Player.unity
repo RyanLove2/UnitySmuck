@@ -222,7 +222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 418844518}
-  ani: {fileID: 0}
 --- !u!95 &418844520
 Animator:
   serializedVersion: 5
