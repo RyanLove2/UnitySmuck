@@ -23,7 +23,7 @@ public class playercontroles : MonoBehaviour
     
     void Start()
     {
-        speedx = 1.0f;
+        speedx = 2.5f;
 
         attack = false;
         ani = GetComponent<Animator>();
@@ -66,22 +66,22 @@ public class playercontroles : MonoBehaviour
         
 
         if(Input.GetKey("up") && Input.GetKey("right")){
-            transform.position += new Vector3(speedx,speedy+1,0) * Time.deltaTime; 
+            transform.position += new Vector3(speedx,speedy+2,0) * Time.deltaTime; 
             SetMoving(true);
             player.flipX = false;
         }
         else if(Input.GetKey("down") && Input.GetKey("left")){
-            transform.position += new Vector3(-speedx,speedy-1,0) * Time.deltaTime; 
+            transform.position += new Vector3(-speedx,speedy-2,0) * Time.deltaTime; 
             SetMoving(true);
             player.flipX = true;
         }
         else if(Input.GetKey("down") && Input.GetKey("right")){
-            transform.position += new Vector3(+speedx,speedy-1,0) * Time.deltaTime; 
+            transform.position += new Vector3(+speedx,speedy-2,0) * Time.deltaTime; 
             SetMoving(true);
             player.flipX = false;
         }
         else if(Input.GetKey("up") && Input.GetKey("left")){
-            transform.position += new Vector3(-speedx,speedy+1,0) * Time.deltaTime; 
+            transform.position += new Vector3(-speedx,speedy+2,0) * Time.deltaTime; 
             SetMoving(true);
             player.flipX = true;
         }
@@ -103,11 +103,11 @@ public class playercontroles : MonoBehaviour
 
         }
         else if(Input.GetKey("up")){
-            transform.position += new Vector3(0,speedy+1,0) * Time.deltaTime;
+            transform.position += new Vector3(0,speedy+2,0) * Time.deltaTime;
            SetMoving(true);
         }
         else if(Input.GetKey("down")){
-            transform.position += new Vector3(0,speedy-1,0) * Time.deltaTime;
+            transform.position += new Vector3(0,speedy-2,0) * Time.deltaTime;
             SetMoving(true);
         }
         else{
