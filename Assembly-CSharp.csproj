@@ -64,7 +64,9 @@
     <Analyzer Include="/home/ryan/Documents/IDE/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/BackgroundScroll.cs" />
     <Compile Include="Assets/menu.cs" />
+    <Compile Include="Assets/camera.cs" />
     <Compile Include="Assets/Sprites/playercontroles.cs" />
   </ItemGroup>
   <ItemGroup>
